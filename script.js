@@ -13,6 +13,7 @@ const UPPER_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const LOWER_LETTERS = 'abcdefghijklmnopqrstuvwxyz';
 const NUM = '0123456789';
 const SIMBOLS = '[]{}/\\|!@#$%&*()-+';
+const VAL = '1px solid #FF0000';
 
 let PASSWORD = "";
 
@@ -54,13 +55,19 @@ SIZE.oninput = function() {
 BTN.onclick = function() {
     if(PASSWORD_RESULT.innerText != '') PASSWORD_RESULT.textContent = '';
  
-    if (SIZE.value.length == 0) {
-        SIZE.style.border = '1px solid #FF0000';
-    } else if (PASSWORD.length == 0) {
+    if (SIZE.value.length == 0 && PASSWORD.length == 0) {
+        SIZE.style.border = VAL;
+
         INPUTS_CHECKBOX.forEach(el => {
-            el.style.outline = '1px solid #FF0000';
+            el.style.outline = VAL;
         });
-    } else {       
+    } else if (SIZE.value.length == 0) {
+        SIZE.style.border = VAL;
+    } else if(PASSWORD.length == 0) {       
+        INPUTS_CHECKBOX.forEach(el => {
+            el.style.outline = VAL;
+        });
+    } else {
         for (let i = 1; i <= SIZE.value; i++) { //size
             PASSWORD_RESULT.textContent += PASSWORD[Math.floor(Math.random() * PASSWORD.length)];
         }
