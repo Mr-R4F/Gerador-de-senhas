@@ -2,4 +2,4 @@
 
 📌 Gerador de senhas desenvolvido em HTML, CSS & JS; <br>
 
-⛏ Versão 1.1
+⛏ Versão 1.2

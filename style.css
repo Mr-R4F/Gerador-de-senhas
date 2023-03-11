@@ -13,24 +13,25 @@
 
 body {
     color: var(--color);
-    background: #0f2027; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(90deg, #6e91b9 0%, #bcc8dc 100%);
     font-family: 'Nunito', sans-serif;
 }
 
-body, .row:first-child, 
+body, 
+.row:first-child, 
 .row:nth-child(2), 
 .material-symbols-outlined, 
 .item:not(.item:last-child), 
 .item:last-child {display: flex;}
 
-body, .row:first-child, 
+body, 
+.row:first-child, 
 .row:nth-child(2), 
 .material-symbols-outlined,
 .item:last-child {justify-content: var(--center);}
 
-body, .row:first-child, 
+body, 
+.row:first-child, 
 .row:nth-child(2), 
 .material-symbols-outlined,
 .item:not(.item:last-child) {align-items: var(--center);}
@@ -40,15 +41,17 @@ body, .row:first-child,
     width: 400px;
 }
 
-.row {background-color: #464F71;}
+.row {background-color: #1a1e2e;}
 
-.row, .item:not(.item:last-child), 
+.row, 
+.item:not(.item:last-child), 
 #show-password, 
-#copy-password {box-shadow: 5px 5px 3px -2px #0F2027;}
+#copy-password {box-shadow: 3px 3px 3px -3px #000;}
 
-.row, button {border-radius: .2rem;}
+.row, 
+button {border-radius: .2rem;}
 
-.row:first-child {height: auto;}
+.row:first-child {height: 3.5rem;}
 
 .row:first-child, 
 .row:nth-child(2) {margin-bottom: .8rem;}
@@ -61,7 +64,7 @@ body, .row:first-child,
 
 #show-password {
     width: 100%;
-    background-color: #444444;
+    background-color: #383e55;
 }
 
 #show-password, 
@@ -72,7 +75,8 @@ body, .row:first-child,
     background-color: #FFF;
 }
 
-#copy-password, button {cursor: pointer;}
+#copy-password, 
+button {cursor: pointer;}
 
 #password-result {
     display: flex;
@@ -106,13 +110,14 @@ input[type=checkbox] {
 }
 
 .item:not(.item:last-child) {
-    background-color: #1C2938A8;
+    background-color: #383e55;
     margin-bottom: 1.15rem;
     padding: .6rem;
     border-radius: .2rem;
 }
 
-input[type=number], label {font-size: x-large;}
+input[type=number], 
+label {font-size: x-large;}
 
 input[type=number] + label {font-size: larger;}
 
@@ -128,8 +133,7 @@ button {
     font-size: xx-large;
     width: 100%;
     height: 50px;
-    background: #2D2D2D;
-    background: linear-gradient(90deg, #2D2D2D 0%, #575757 95%, #66625D 100%);
+    background: #5b5b5b;
     border: 0;
     transition: .4s ease-in-out;
 }
@@ -139,4 +143,43 @@ button:hover {transform: scale(1.1);}
 button:active {
     transform: scale(.9);
     transition: .1s;
+}
+
+/* Tool tip */
+#copy-password {
+    position: relative;
+    display: inline-block;
+}
+
+#copy-password #txt {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#copy-password #txt::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+#copy-password:hover #txt {
+    visibility: visible;
+    opacity: 1;
 }
